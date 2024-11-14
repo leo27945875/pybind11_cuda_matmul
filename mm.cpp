@@ -2,6 +2,9 @@
 
 
 Matrix multiply_naive(const Matrix &A, const Matrix &B){
+    if (A.ncol() != B.nrow())
+        throw std::runtime_error("A.ncol() does not equal to B.nrow().");
+        
     Matrix C(A.nrow(), B.ncol());
     for (size_t i = 0; i < A.nrow(); i++){
     for (size_t j = 0; j < B.ncol(); j++){
@@ -13,6 +16,9 @@ Matrix multiply_naive(const Matrix &A, const Matrix &B){
 
 
 Matrix multiply_tile(const Matrix &A, const Matrix &B, size_t tile){
+    if (A.ncol() != B.nrow())
+        throw std::runtime_error("A.ncol() does not equal to B.nrow().");
+        
     Matrix C(A.nrow(), B.ncol());
     for (size_t ti = 0; ti < A.nrow(); ti+=tile)
     for (size_t tj = 0; tj < B.ncol(); tj+=tile)

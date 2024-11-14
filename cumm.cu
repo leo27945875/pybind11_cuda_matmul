@@ -31,6 +31,9 @@ __global__ void multiply_kernel(double *matA, double *matB, double *matC, int m,
 }
 
 Matrix multiply_cuda(const Matrix &A, const Matrix &B){
+    if (A.ncol() != B.nrow())
+        throw std::runtime_error("A.ncol() does not equal to B.nrow().");
+        
     Matrix C(A.nrow(), B.ncol());
 
     double *d_A, *d_B, *d_C;

@@ -7,5 +7,8 @@ testcpp:  test_matrix.cpp mm.cpp cumm.cu matrix.hpp mm.hpp cumm.cuh
 	nvcc test_matrix.cpp mm.cpp cumm.cu -o test_matrix
 	./test_matrix
 
+perf:
+	python performance.py
+
 clean:
 	rm -rf ${NAME} __pycache__ build/* test_matrix

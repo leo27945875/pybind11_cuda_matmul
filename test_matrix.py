@@ -21,11 +21,6 @@ class TestMatrix(unittest.TestCase):
         self.assertTrue(is_matrix_same_shape(mat1, mat3))
         self.assertTrue(is_matrix_same_shape(mat2, mat3))
 
-    def test_bound_check(self):
-        mat = _matrix.Matrix(10, 15)
-        with self.assertRaises(ValueError):
-            mat[99,99]
-
     def test_tile_multiply(self):
         mat1, mat2, _ = make_matrices(10)
         res0 = _matrix.multiply_naive(mat1, mat2)

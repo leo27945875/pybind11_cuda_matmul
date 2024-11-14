@@ -46,14 +46,10 @@ public:
     }
     double operator() (size_t row, size_t col) const
     {
-        if (is_out(row, col))
-            throw std::invalid_argument("Index out of range.");
         return m_buffer[row*m_ncol + col];
     }
     double & operator() (size_t row, size_t col)
     {
-        if (is_out(row, col))
-            throw std::invalid_argument("Index out of range.");
         return m_buffer[row*m_ncol + col];
     }
 

@@ -9,6 +9,9 @@ include(CheckLanguage)
 
 find_package(pybind11 CONFIG REQUIRED)
 
+set(CMAKE_CXX_FLAGS "-O3 -Wall")
+set(CMAKE_CUDA_FLAGS "-O3 -Wall")
+
 check_language(CUDA)
 message("CMAKE_CUDA_COMPILER_ID : ${CMAKE_CUDA_COMPILER_ID}")
 message("CMAKE_CUDA_COMPILER_VERSION : ${CMAKE_CUDA_COMPILER_VERSION}")

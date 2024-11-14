@@ -9,8 +9,9 @@ include(CheckLanguage)
 
 find_package(pybind11 CONFIG REQUIRED)
 
-set(CMAKE_CXX_FLAGS "-O3 -Wall")
-set(CMAKE_CUDA_FLAGS "-O3 -Wall")
+set(CMAKE_BUILD_TYPE "Release")
+set(CMAKE_CXX_FLAGS_RELEASE  "-O3 -Wall")
+set(CMAKE_CUDA_FLAGS_RELEASE "-O3 -Wall")
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 
 check_language(CUDA)

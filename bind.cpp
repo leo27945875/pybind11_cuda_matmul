@@ -11,6 +11,7 @@ PYBIND11_MODULE(_matrix, m){
         .def("__setitem__", [](Matrix &self, std::pair<size_t, size_t> key, double val){ self(key.first, key.second) = val; })
         .def("__eq__", &Matrix::operator==)
         .def("show", &Matrix::show)
+        .def("is_close", &Matrix::is_close)
         .def_property("nrow", &Matrix::nrow, nullptr)
         .def_property("ncol", &Matrix::ncol, nullptr);
 

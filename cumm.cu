@@ -13,21 +13,21 @@ __global__ void multiply_kernel(double *matA, double *matB, double *matC, int m,
 
     int row = blockIdx.x * blockDim.x + threadIdx.x;
     int col = blockIdx.y * blockDim.y + threadIdx.y;
-    if (row >= m || col >= n)
-        return;
 
     double res = 0.;
     for (int tile = 0; tile < k; tile += THREAD_DIM){
         int colA = tile + threadIdx.y;
         int rowB = tile + threadIdx.x;
-        sharedA[threadIdx.x][threadIdx.y] = (colA < k)? matA[row * k + colA]: 0.;
-        sharedB[threadIdx.x][threadIdx.y] = (rowB < k)? matB[rowB * n + col]: 0.;
+        sharedA[threadIdx.x][threadIdx.y] = (colA < k && row < m)? matA[row * k + colA]: 0.;
+        sharedB[threadIdx.x][threadIdx.y] = (rowB < k && col < n)? matB[rowB * n + col]: 0.;
         __syncthreads();
         for (int i = 0; i < THREAD_DIM; i++)
             res += sharedA[threadIdx.x][i] * sharedB[i][threadIdx.y];
         __syncthreads();
     }
-    matC[row * n + col] = res;
+
+    if (row < m && col < n)
+        matC[row * n + col] = res;
 }
 
 Matrix multiply_cuda(const Matrix &A, const Matrix &B){

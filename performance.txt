@@ -1,5 +1,5 @@
-Start multiply_naive (repeat=5), take min = 0.48065149202011526 seconds
-Start multiply_tile (repeat=5), take min = 0.24392389506101608 seconds
-Start multiply_cuda (repeat=5), take min = 0.005516919074580073 seconds
-Tile speed-up over Naive: 1.9705 x
-CUDA speed-up over naive: 87.1232 x
+Start multiply_naive (repeat=5), take min = 0.47928862017579377 seconds
+Start multiply_tile (repeat=5), take min = 0.24273309111595154 seconds
+Start multiply_cuda (repeat=5), take min = 0.0054361659567803144 seconds
+Tile speed-up over Naive: 1.97455 x
+CUDA speed-up over naive: 88.1667 x

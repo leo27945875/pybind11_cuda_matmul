@@ -22,16 +22,16 @@ class TestMatrix(unittest.TestCase):
         self.assertTrue(is_matrix_same_shape(mat2, mat3))
 
     def test_tile_multiply(self):
-        mat1, mat2, _ = make_matrices(10)
+        mat1, mat2, _ = make_matrices(300)
         res0 = _matrix.multiply_naive(mat1, mat2)
         res1 = _matrix.multiply_tile(mat1, mat2, 8)
-        self.assertEqual(res0, res1)
+        self.assertTrue(res0.is_close(res1, 1e-5))
     
     def test_cuda_multiply(self):
-        mat1, mat2, _ = make_matrices(10)
+        mat1, mat2, _ = make_matrices(300)
         res0 = _matrix.multiply_naive(mat1, mat2)
         res1 = _matrix.multiply_cuda(mat1, mat2)
-        self.assertEqual(res0, res1)
+        self.assertTrue(res0.is_close(res1, 1e-5))
 
 
 def make_matrices(size: int) -> tuple[_matrix.Matrix, _matrix.Matrix, _matrix.Matrix]:

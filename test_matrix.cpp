@@ -3,22 +3,25 @@
 #include "cumm.cuh"
 
 
-#define SIZE 1000
+#define H 153
+#define K 101
+#define W 192
 
 
 int main(){
-    Matrix A(SIZE, SIZE);
-    Matrix B(SIZE, SIZE);
-    Matrix C(SIZE, SIZE);
-    Matrix D(SIZE, SIZE);
+    Matrix A(H, K);
+    Matrix B(K, W);
+    Matrix C(H, W);
+    Matrix D(H, W);
 
     A.rand_init();
     B.rand_init();
     C = multiply_naive(A, B);
     D = multiply_cuda(A, B);
 
-    C.show();
-    D.show();
+    // std::cout << std::endl;
+    // C.show();
+    // D.show();
 
     std::cout << "\n" << (C.is_close(D)? "Equal": "Not equal") << std::endl;
 

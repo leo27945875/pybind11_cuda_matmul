@@ -3,8 +3,7 @@
 #include "cumm.cuh"
 
 
-#define SIZE 16
-#define MAT_TOTAL 16 * 16
+#define SIZE 1000
 
 
 int main(){

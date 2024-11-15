@@ -1,5 +1,4 @@
 # Must use 'pip install "pybind11[global]"' to install pybind11 first. 
-# It will add files to '/usr/local/include/pybind11' and '/usr/local/share/cmake/pybind11'.
 
 cmake_minimum_required(VERSION 3.31)
 

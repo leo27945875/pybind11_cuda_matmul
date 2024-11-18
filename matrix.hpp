@@ -12,6 +12,7 @@ public:
     Matrix(size_t nrow, size_t ncol)
         : m_nrow(nrow), m_ncol(ncol), m_buffer(new double[nrow * ncol])
     {
+        std::cout << "Create !" << std::endl;
         memset(m_buffer, 0, nrow * ncol * sizeof(double));
     }
     Matrix(const Matrix& other)
@@ -62,6 +63,9 @@ public:
 
     size_t buffer_size() const { 
         return m_nrow * m_ncol * sizeof(double); 
+    }
+    size_t buffer_addr() const {
+        return (size_t)(uintptr_t)m_buffer;
     }
     bool is_out(size_t row, size_t col) const { 
         return row >= m_nrow || col >= m_ncol; 

@@ -37,6 +37,17 @@ class TestMatrix(unittest.TestCase):
         mat = _matrix.Matrix(10, 10)
         mat[0, 0] = -1.2
         self.assertEqual(mat.data_ptr(), -1.2)
+    
+    def test_singleton(self):
+        mat0 = _matrix.get_singleton_matrix(5, 5)
+        mat1 = _matrix.get_singleton_matrix(7, 10)
+        mat2 = _matrix.get_singleton_matrix(2, 8)
+        self.assertEqual(mat0.nrow, mat1.nrow)
+        self.assertEqual(mat0.ncol, mat1.ncol)
+        self.assertEqual(mat0.ncol, mat2.ncol)
+        self.assertEqual(mat0.ncol, mat2.ncol)
+        self.assertEqual(mat1.ncol, mat2.ncol)
+        self.assertEqual(mat1.ncol, mat2.ncol)
 
 
 def make_matrices(size: int) -> tuple[_matrix.Matrix, _matrix.Matrix, _matrix.Matrix]:

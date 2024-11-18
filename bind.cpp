@@ -12,6 +12,7 @@ PYBIND11_MODULE(_matrix, m){
         .def("__eq__", &Matrix::operator==)
         .def("show", &Matrix::show)
         .def("is_close", &Matrix::is_close)
+        .def("data_ptr", &Matrix::data_ptr)
         .def_property("nrow", &Matrix::nrow, nullptr)
         .def_property("ncol", &Matrix::ncol, nullptr);
 

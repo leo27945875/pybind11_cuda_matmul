@@ -33,6 +33,11 @@ class TestMatrix(unittest.TestCase):
         res1 = _matrix.multiply_cuda(mat1, mat2)
         self.assertTrue(res0.is_close(res1, 1e-5))
 
+    def test_get_data_ptr(self):
+        mat = _matrix.Matrix(10, 10)
+        mat[0, 0] = -1.2
+        self.assertEqual(mat.data_ptr(), -1.2)
+
 
 def make_matrices(size: int) -> tuple[_matrix.Matrix, _matrix.Matrix, _matrix.Matrix]:
     mat1 = _matrix.Matrix(size,size)

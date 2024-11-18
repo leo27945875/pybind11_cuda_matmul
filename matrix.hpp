@@ -58,8 +58,7 @@ public:
 
     size_t nrow() const { return m_nrow; }
     size_t ncol() const { return m_ncol; }
-    double *  data_ptr() const { return m_buffer; }
-    double *& data_ptr()       { return m_buffer; }
+    double * data_ptr() const { return m_buffer; }
 
     size_t buffer_size() const { 
         return m_nrow * m_ncol * sizeof(double); 

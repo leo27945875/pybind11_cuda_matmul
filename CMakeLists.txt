@@ -11,7 +11,7 @@ set(CMAKE_CXX_FLAGS_RELEASE  "-O3 -Wall")
 set(CMAKE_CUDA_FLAGS_RELEASE "-O3 -Wall")
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 
-set(PYBIND11_FINDPYTHON ON)
+find_package(Python COMPONENTS Interpreter Development)
 find_package(pybind11 CONFIG REQUIRED)
 
 check_language(CUDA)

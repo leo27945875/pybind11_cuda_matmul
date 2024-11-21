@@ -12,7 +12,6 @@ public:
     Matrix(size_t nrow, size_t ncol)
         : m_nrow(nrow), m_ncol(ncol), m_buffer(new double[nrow * ncol])
     {
-        std::cout << "Create !" << std::endl;
         memset(m_buffer, 0, nrow * ncol * sizeof(double));
     }
     Matrix(const Matrix& other)
